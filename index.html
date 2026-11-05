@@ -223,8 +223,32 @@ const galleryItems=[
 ["14friends.webp","A special friendship","The queen and Jungle Cat."],
 ["15continue.webp","To be continued","A new adventure awaits."]
 ];
+// GALLERY: add new pictures to images/gallery/ and add a line to galleryItems above.
+// The old pictures are still loaded from images/startsite/ as a fallback,
+// so the existing gallery keeps working without moving any files.
 const grid=document.getElementById("galleryGrid");
-galleryItems.forEach(([file,title,caption])=>{const figure=document.createElement("figure");figure.className="frame";const img=document.createElement("img");img.src="images/startsite/"+file;img.alt=title;img.loading="lazy";img.dataset.full=img.src;const cap=document.createElement("figcaption");cap.innerHTML="<strong></strong> "+caption;cap.querySelector("strong").textContent=title+".";figure.append(img,cap);grid.append(figure)});
+galleryItems.forEach(([file,title,caption])=>{
+  const figure=document.createElement("figure");
+  figure.className="frame";
+  const img=document.createElement("img");
+  img.src="images/gallery/"+file;
+  img.alt=title;
+  img.loading="lazy";
+  img.dataset.legacySrc="images/startsite/"+file;
+  img.addEventListener("error",function(){
+    if(this.dataset.legacySrc){
+      const fallback=this.dataset.legacySrc;
+      delete this.dataset.legacySrc;
+      this.src=fallback;
+    }
+  });
+  const cap=document.createElement("figcaption");
+  const strong=document.createElement("strong");
+  strong.textContent=title+".";
+  cap.append(strong,document.createTextNode(" "+caption));
+  figure.append(img,cap);
+  grid.append(figure);
+});
 const dialog=document.getElementById("lightbox"),large=dialog.querySelector("img");
 document.addEventListener("click",e=>{const img=e.target.closest(".frame img,.poster img");if(img){large.src=img.src;large.alt=img.alt;dialog.showModal()}});
 dialog.querySelector(".close").addEventListener("click",()=>dialog.close());
