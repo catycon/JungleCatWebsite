@@ -216,7 +216,7 @@ footer{color:#b4c9b8}
 <header class="page-intro">
   <p class="kicker">Game configuration reference</p>
   <h1 class="page-title">SETTINGS</h1>
-  <p class="lede">A complete reference to the game’s adjustable values. 281 variables in 12 groups.</p>
+  <p class="lede">A complete reference to the game’s adjustable values. 287 variables in 12 groups.</p>
 </header>
 
 <div class="parchment settings-intro">
@@ -260,7 +260,7 @@ footer{color:#b4c9b8}
 </style>
 
 <div class="parchment settings-expert">
-<p class="sub">281 variables in 12 groups. Defaults are the values in <code>js/game.js</code>. Step is the amount one click on the setting changes.</p>
+<p class="sub">287 variables in 12 groups. Defaults are the values in <code>js/game.js</code>. Step is the amount one click on the setting changes.</p>
 <input id="q" type="search" placeholder="Search a variable or a word, e.g. BOSS, speed, FRAMES …" aria-label="Search settings">
 <nav>
   <a href="#hero-movement">Hero Movement</a>
@@ -370,7 +370,7 @@ footer{color:#b4c9b8}
 <tr><td><code>WP_HX</code></td><td>7</td><td>1</td><td></td></tr>
 <tr><td><code>WP_HY</code></td><td>-24</td><td>5</td><td></td></tr>
 </tbody></table></section>
-<section class="grp" id="enemies"><h2>Enemies <small>(24)</small></h2>
+<section class="grp" id="enemies"><h2>Enemies <small>(28)</small></h2>
 <table><thead><tr><th>Variable</th><th>Default</th><th>Step</th><th>What it does</th></tr></thead><tbody>
 <tr><td><code>SPEED_SNAKE</code></td><td>0.25</td><td>0.01</td><td></td></tr>
 <tr><td><code>SPEED_BAT</code></td><td>0.35</td><td>0.01</td><td>flying</td></tr>
@@ -392,10 +392,14 @@ footer{color:#b4c9b8}
 <tr><td><code>ATK_CD</code></td><td>150</td><td>10</td><td>ticks between two attack animations.</td></tr>
 <tr><td><code>ATK_RY</code></td><td>34</td><td>5</td><td>height tolerance for starting the attack.</td></tr>
 <tr><td><code>SK_HIT</code></td><td>1</td><td>1</td><td>1 = the long sword really hurts (in the last 2 attack pictures), 0 = it is only a picture.</td></tr>
-<tr><td><code>SK_REACH</code></td><td>44</td><td>5</td><td></td></tr>
+<tr><td><code>SK_REACH</code></td><td>0</td><td>1</td><td>extra reach added to the sword hit zone (0 = exactly the blade in the picture)</td></tr>
 <tr><td><code>SPK_ON</code></td><td>1</td><td>1</td><td></td></tr>
 <tr><td><code>SPK_K</code></td><td>0.2</td><td>0.01</td><td></td></tr>
 <tr><td><code>SPK_HIT</code></td><td>10</td><td>1</td><td></td></tr>
+<tr><td><code>SK_ATK_T</code> <span class="new">new</span></td><td>80</td><td>5</td><td>skeleton: length of the whole sword attack animation in ticks (60 = 1 second)</td></tr>
+<tr><td><code>SK_HIT_FROM</code> <span class="new">new</span></td><td>22</td><td>1</td><td>skeleton: the sword hurts from this attack picture (1–33)</td></tr>
+<tr><td><code>SK_HIT_TO</code> <span class="new">new</span></td><td>26</td><td>1</td><td>skeleton: the sword hurts until this attack picture (1–33)</td></tr>
+<tr><td><code>SK_SND_FRAME</code> <span class="new">new</span></td><td>13</td><td>1</td><td>skeleton: the sword sound starts at this attack picture</td></tr>
 </tbody></table></section>
 <section class="grp" id="archer-10"><h2>Archer 10 <small>(18)</small></h2>
 <table><thead><tr><th>Variable</th><th>Default</th><th>Step</th><th>What it does</th></tr></thead><tbody>
@@ -467,7 +471,7 @@ footer{color:#b4c9b8}
 </tbody></table></section>
 <section class="grp" id="woman-boss"><h2>Woman Boss <small>(18)</small></h2>
 <table><thead><tr><th>Variable</th><th>Default</th><th>Step</th><th>What it does</th></tr></thead><tbody>
-<tr><td><code>WBS_VOL</code></td><td>1</td><td>1</td><td></td></tr>
+<tr><td><code>WBS_VOL</code></td><td>2</td><td>1</td><td>woman boss shot volume (2 = 100% louder than before)</td></tr>
 <tr><td><code>BOSS_FIRE_TICKS</code></td><td>120</td><td>10</td><td>ticks between two shots (120 = one shot every 2 seconds). Higher = easier.</td></tr>
 <tr><td><code>BOSS_BULLET_SPEED</code></td><td>1.3</td><td>0.1</td><td>speed of the bullets (was 2.3). Lower = easier.</td></tr>
 <tr><td><code>BOSS_WALK_TPF</code> <span class="new">new</span></td><td>2.8</td><td>0.1</td><td>end boss walk: ticks per picture (bigger = slower legs)</td></tr>
@@ -486,8 +490,11 @@ footer{color:#b4c9b8}
 <tr><td><code>WB_MX</code></td><td>35</td><td>5</td><td></td></tr>
 <tr><td><code>WB_MY</code></td><td>40.6</td><td>1</td><td></td></tr>
 </tbody></table></section>
-<section class="grp" id="screen-misc"><h2>Screen / Misc <small>(9)</small></h2>
+<section class="grp" id="screen-misc"><h2>Screen / Misc <small>(11)</small></h2>
 <table><thead><tr><th>Variable</th><th>Default</th><th>Step</th><th>What it does</th></tr></thead><tbody>
+
+<tr><td><code>SFX_VOL</code> <span class="new">new</span></td><td>1</td><td>0.1</td><td>volume of all beeps, clicks and pickups (the 8-bit WAV samples in audio/sfx/). 1 = as before, 0 = silent</td></tr>
+<tr><td><code>AMB_VOL</code> <span class="new">new</span></td><td>1</td><td>0.1</td><td>volume of the jungle ambience loop (audio/ambience.wav: wind, insects, hum). 1 = as before, 0 = silent</td></tr>
 <tr><td><code>DANCE_SECONDS</code> <span class="new">new</span></td><td>5</td><td>0.5</td><td>seconds the win dance picture is shown before the win screen (space / enter / click skips it)</td></tr>
 <tr><td><code>CHEAT_KEYS</code></td><td>1</td><td>1</td><td>1 = test keys work while playing (5 = in front of an enemy 10 archer, 8 = enemy 30 archer, 7 = end boss, 6 = chimp, 0 = skeleton bridge, 9 = skip t...</td></tr>
 <tr><td><code>CRAWL_K</code></td><td>4.8</td><td>0.1</td><td>crawl animation speed: pictures per step of walking. Bigger = faster legs.</td></tr>
@@ -536,7 +543,7 @@ footer{color:#b4c9b8}
 <tr><td><code>CAP_K</code></td><td>0.165</td><td>0.01</td><td></td></tr>
 <tr><td><code>CAP_TPF</code></td><td>6</td><td>1</td><td></td></tr>
 <tr><td><code>CAP_ALPHA</code></td><td>1</td><td>1</td><td></td></tr>
-<tr><td><code>CAP_VOL</code></td><td>1</td><td>1</td><td>volume of the scene's sound (audio/captive_scene.mp3), played once at the start of every loop of the animation. 0 = silent</td></tr>
+<tr><td><code>CAP_VOL</code></td><td>2</td><td>1</td><td>volume of the captive scene sound (2 = 100% louder than before; 0 = silent)</td></tr>
 <tr><td><code>PRH_ON</code></td><td>1</td><td>1</td><td></td></tr>
 <tr><td><code>PRH_X</code></td><td>18028.6</td><td>1000</td><td></td></tr>
 <tr><td><code>PRH_FY</code></td><td>131.9</td><td>10</td><td></td></tr>
@@ -567,7 +574,7 @@ footer{color:#b4c9b8}
 <tr><td><code>FRAMES_BEAST_WALK</code></td><td>4</td><td>1</td><td>number of pictures of the animation "beast walk" (the numbered files in the graphics folder). Needs a page reload (F5).</td></tr>
 <tr><td><code>FRAMES_BEAST_ATTACK</code></td><td>4</td><td>1</td><td>number of pictures of the animation "beast attack" (the numbered files in the graphics folder). Needs a page reload (F5).</td></tr>
 <tr><td><code>FRAMES_SKELETON_WALK</code></td><td>36</td><td>1</td><td>number of pictures of the animation "skeleton walk" (the numbered files in the graphics folder). Needs a page reload (F5).</td></tr>
-<tr><td><code>FRAMES_SKELETON_ATTACK</code></td><td>4</td><td>1</td><td>number of pictures of the animation "skeleton attack" (the numbered files in the graphics folder). Needs a page reload (F5).</td></tr>
+<tr><td><code>FRAMES_SKELETON_ATTACK</code> <span class="new">updated</span></td><td>33</td><td>1</td><td>number of pictures of the 33-picture sword attack animation (skeleton_attack_01..33.webp). Needs a page reload (F5).</td></tr>
 <tr><td><code>FRAMES_BOSS_WALK</code> <span class="new">new</span></td><td>81</td><td>1</td><td>number of pictures of the animation "end boss walk" (the numbered files in the graphics folder). Needs a page reload (F5).</td></tr>
 <tr><td><code>FRAMES_CAPTIVE</code></td><td>17</td><td>1</td><td>number of pictures of the animation "captive" (the numbered files in the graphics folder). Needs a page reload (F5).</td></tr>
 <tr><td><code>FRAMES_ARCHER10_IDLE</code></td><td>12</td><td>1</td><td>number of pictures of the animation "archer10 idle" (the numbered files in the graphics folder). Needs a page reload (F5).</td></tr>
@@ -596,7 +603,7 @@ footer{color:#b4c9b8}
 </tbody></table></section>
 
 </div>
-<p class="settings-count" style="text-align:center;color:#c5d99b;font-size:.9rem;letter-spacing:.08em;margin:30px 0">281 settings · Jungle Cat</p>
+<p class="settings-count" style="text-align:center;color:#c5d99b;font-size:.9rem;letter-spacing:.08em;margin:30px 0">287 settings · Jungle Cat</p>
 </div>
 <script>
 (function(){
@@ -645,6 +652,9 @@ const galleryItems=[
 ["jungle-cat-river.webp","Across the river","A fearless run through the heart of the jungle."],
 ["gorilla-guardian.webp","The jungle guardian","A powerful presence deep in the ancient forest."],
 ["jungle-cat-poster.webp","The Jungle Cat legend","The adventure begins beneath the lost kingdom."],
+["princess-chained.jpg","The captive princess","Held beneath the ancient jungle canopy."],
+["jungle-cat-cave.png","Through the old stone passage","Jungle Cat explores a dark passage beneath the ruins."],
+["desert-caravan.jpg","Across the desert","A dangerous journey through the sunset dunes."],
 ];
 // GALLERY: add new pictures to images/gallery/ and add a line to galleryItems above.
 // The old pictures are still loaded from images/startsite/ as a fallback,
