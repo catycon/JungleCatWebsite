@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>Jungle Cat – Expert Settings</title>
 <style>
 :root{--bg:#fbfaf4;--ink:#1d2a1c;--mute:#5b6b58;--line:#d9d6c4;--head:#e9efd9;--acc:#2f7a1f;--code:#f0eedf}
