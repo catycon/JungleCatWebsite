@@ -328,21 +328,6 @@
 </tbody></table></section>
 </div>
 </main>
-<script>
-(function(){
-  var q=document.getElementById('q');
-  q.addEventListener('input',function(){
-    var t=q.value.trim().toLowerCase();
-    document.querySelectorAll('section.grp').forEach(function(s){
-      var any=false;
-      s.querySelectorAll('tbody tr').forEach(function(r){
-        var m=!t||r.textContent.toLowerCase().indexOf(t)>-1;
-        r.classList.toggle('hide',!m); if(m)any=true;
-      });
-      s.classList.toggle('hide',!any);
-    });
-  });
-}());
-</script>
+
 </body>
 </html>
