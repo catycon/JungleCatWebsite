@@ -1,5 +1,5 @@
 
-<title>Jungle Cat – Expert Settings</title>
+
 
 
 <body>
