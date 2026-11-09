@@ -4,6 +4,8 @@
 
 <body>
 <main>
+<p> link to game : https://catycat30.itch.io/jungle-cat</p>
+  
 <h1>Jungle Cat – Expert Settings</h1>
 <p class="sub">281 variables in 12 groups. Defaults are the values in <code>js/game.js</code>. Step is the amount one click on the setting changes.</p>
 <input id="q" type="search" placeholder="Search a variable or a word, e.g. BOSS, speed, FRAMES …" aria-label="Search settings">
